@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usina de Asfalto do CIM | Calculadora CBUQ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top-header no-print">
+    <div class="brand">
+      <img src="logo-cim.png" alt="Consórcio Intermunicipal Multifinalitário dos Municípios da AMUREL" />
+    </div>
+    <div class="system-title">
+      <h1>USINA DE ASFALTO DO CIM</h1>
+      <p>CBUQ Faixa B Aplicado</p>
+    </div>
+  </header>
+
+  <nav class="nav no-print">
+    <a href="#" class="nav-item">⌂ INÍCIO</a>
+    <a href="#" class="nav-item active">▦ CALCULADORA</a>
+    <a href="#" class="nav-item">SOBRE O CIM</a>
+    <a href="#" class="nav-info">ⓘ INFORMAÇÕES</a>
+  </nav>
+
+  <main class="container">
+    <section class="page-title no-print">
+      <div class="title-icon">▦</div>
+      <div>
+        <h2>Calculadora de Pavimentação Asfáltica</h2>
+        <p>Simule o custo estimado para fornecimento e aplicação de CBUQ Faixa B.</p>
+      </div>
+    </section>
+
+    <section class="layout">
+      <form class="panel no-print" id="calcForm">
+        <div class="panel-title">
+          <span>▧</span>
+          <h3>DADOS DA OBRA</h3>
+        </div>
+
+        <label>Município <b>*</b>
+          <select id="municipio" required>
+            <option value="">Selecione o município</option>
+                <option value="Armazém">Armazém</option>
+                <option value="Braço do Norte">Braço do Norte</option>
+                <option value="Capivari de Baixo">Capivari de Baixo</option>
+                <option value="Grão-Pará">Grão-Pará</option>
+                <option value="Gravatal">Gravatal</option>
+                <option value="Imaruí">Imaruí</option>
+                <option value="Imbituba">Imbituba</option>
+                <option value="Jaguaruna">Jaguaruna</option>
+                <option value="Laguna">Laguna</option>
+                <option value="Pedras Grandes">Pedras Grandes</option>
+                <option value="Pescaria Brava">Pescaria Brava</option>
+                <option value="Rio Fortuna">Rio Fortuna</option>
+                <option value="Sangão">Sangão</option>
+                <option value="Santa Rosa de Lima">Santa Rosa de Lima</option>
+                <option value="São Ludgero">São Ludgero</option>
+                <option value="São Martinho">São Martinho</option>
+                <option value="Treze de Maio">Treze de Maio</option>
+                <option value="Tubarão">Tubarão</option>
+          </select>
+        </label>
+
+        <label>Nome da Obra <b>*</b>
+          <input type="text" id="obra" placeholder="Ex.: Pavimentação Rua das Flores" required />
+        </label>
+
+        <label>Local / Rua <b>*</b>
+          <input type="text" id="local" placeholder="Ex.: Rua das Flores" required />
+        </label>
+
+        <div class="panel-subtitle">RESPONSÁVEL PELA SOLICITAÇÃO</div>
+
+        <div class="two">
+          <label>Nome completo <b>*</b>
+            <input type="text" id="responsavelNome" placeholder="Ex.: João da Silva" required />
+          </label>
+
+          <label>Cargo <b>*</b>
+            <input type="text" id="responsavelCargo" placeholder="Ex.: Engenheiro Civil" required />
+          </label>
+        </div>
+
+        <div class="three">
+          <label>Secretaria <b>*</b>
+            <input type="text" id="responsavelSecretaria" placeholder="Ex.: Secretaria de Obras" required />
+          </label>
+
+          <label>E-mail <b>*</b>
+            <input type="email" id="responsavelEmail" placeholder="Ex.: engenharia@municipio.sc.gov.br" required />
+          </label>
+
+          <label>Telefone <b>*</b>
+            <input type="text" id="responsavelTelefone" placeholder="Ex.: (48) 99999-9999" required />
+          </label>
+        </div>
+
+        <div class="panel-subtitle">DADOS GEOMÉTRICOS E TÉCNICOS</div>
+
+        <div class="three">
+          <label>Extensão <b>*</b> (m)
+            <input type="number" id="extensao" step="0.01" min="0" placeholder="Ex.: 1.000" required />
+          </label>
+          <label>Largura média <b>*</b> (m)
+            <input type="number" id="largura" step="0.01" min="0" placeholder="Ex.: 7,00" required />
+          </label>
+          <label>Espessura <b>*</b> (cm)
+            <input type="number" id="espessura" step="0.1" min="0" value="4" required />
+          </label>
+        </div>
+
+        <label>Distância da Usina <b>*</b> (km)
+          <input type="number" id="distancia" step="0.01" min="0" placeholder="Ex.: 30" required />
+        </label>
+
+        <details class="params">
+          <summary>Parâmetros técnicos editáveis</summary>
+          <div class="three">
+            <label>CBUQ aplicado (R$/t)
+              <input type="number" id="precoTon" step="0.01" value="540.00" />
+            </label>
+            <label>Transporte (R$/km.t)
+              <input type="number" id="precoKmTon" step="0.01" value="1.94" />
+            </label>
+            <label>Densidade (t/m³)
+              <input type="number" id="densidade" step="0.01" value="2.40" />
+            </label>
+          </div>
+        </details>
+
+        <div class="info-box">
+          <div class="info-icon">i</div>
+          <div>
+            Valores estimativos com base nos preços vigentes:<br />
+            • CBUQ Faixa B Aplicado: R$ 540,00 por tonelada<br />
+            • Transporte: R$ 1,94 por tonelada por km
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="reset" class="btn outline">🗑 LIMPAR</button>
+          <button type="submit" class="btn primary">▦ CALCULAR</button>
+        </div>
+      </form>
+
+      <section class="panel no-print">
+        <div class="panel-title between">
+          <div>
+            <span>▥</span>
+            <h3>RESULTADOS DA SIMULAÇÃO</h3>
+          </div>
+          <button type="button" class="btn small outline" onclick="window.print()">◉ VER MEMÓRIA DE CÁLCULO</button>
+        </div>
+
+        <div class="quote-number">
+          <span>Número do orçamento</span>
+          <strong id="numeroOrcamento">–</strong>
+        </div>
+
+        <table class="result-table">
+          <thead>
+            <tr><th>Descrição</th><th>Resultado</th><th>Unidade</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Área</td><td id="area">–</td><td>m²</td></tr>
+            <tr><td>Volume</td><td id="volume">–</td><td>m³</td></tr>
+            <tr><td>Massa Estimada</td><td id="toneladas">–</td><td>t</td></tr>
+            <tr><td>Custo por m²</td><td id="custoM2">–</td><td>R$/m²</td></tr>
+            <tr><td>Custo por metro linear</td><td id="custoMetroLinear">–</td><td>R$/m</td></tr>
+            <tr><td>Custo por quilômetro de via</td><td id="custoKmVia">–</td><td>R$/km</td></tr>
+            <tr><td>Consumo de CBUQ por m²</td><td id="consumoM2">–</td><td>t/m²</td></tr>
+            <tr><td>Toneladas por km</td><td id="toneladasKm">–</td><td>t/km</td></tr>
+          </tbody>
+        </table>
+
+        <table class="result-table budget-table">
+          <thead>
+            <tr><th>Item</th><th>Cálculo</th><th>Valor (R$)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>CBUQ Faixa B Aplicado</td><td id="calcCbuq">–</td><td id="valorCbuq">–</td></tr>
+            <tr><td>Transporte</td><td id="calcTransporte">–</td><td id="valorTransporte">–</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><th colspan="2">TOTAL ESTIMADO</th><th id="total">R$ –</th></tr>
+          </tfoot>
+        </table>
+
+        <div class="alert-box" id="alertasTecnicos">
+          Preencha os dados e clique em calcular para verificar alertas técnicos.
+        </div>
+
+        <div class="actions">
+          <button type="button" class="btn outline" onclick="window.print()">▣ GERAR PDF / IMPRIMIR</button>
+          <button type="button" class="btn primary" onclick="enviarSolicitacaoCIM()">✈ SOLICITAR ORÇAMENTO OFICIAL</button>
+        </div>
+      </section>
+    </section>
+
+    <section class="important no-print">
+      <strong>ⓘ IMPORTANTE</strong>
+      <span>O presente cálculo possui caráter estimativo e não substitui análise técnica, vistoria, projeto executivo, processo administrativo, empenho, termo de referência ou orçamento oficial emitido pelo CIM.</span>
+    </section>
+
+    <section class="print-document" id="printDocument">
+      <header class="print-header">
+        <img src="logo-cim.png" alt="CIM" />
+        <div>
+          <p class="print-org">CONSÓRCIO INTERMUNICIPAL MULTIFINALITÁRIO DOS MUNICÍPIOS DA AMUREL</p>
+          <h1>Memorial de Cálculo Estimativo</h1>
+          <p>Usina de Asfalto do CIM | CBUQ Faixa B Aplicado</p>
+        </div>
+      </header>
+
+      <section class="print-section">
+        <h2>1. Informações Iniciais da Obra</h2>
+        <table>
+          <tbody>
+            <tr><th>Número do orçamento</th><td id="pNumeroOrcamento">-</td></tr>
+            <tr><th>Município</th><td id="pMunicipio">-</td></tr>
+            <tr><th>Nome da Obra</th><td id="pObra">-</td></tr>
+            <tr><th>Local / Rua</th><td id="pLocal">-</td></tr>
+            <tr><th>Data da simulação</th><td id="pData">-</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="print-section">
+        <h2>2. Responsável pela Solicitação</h2>
+        <table>
+          <tbody>
+            <tr><th>Nome</th><td id="pResponsavelNome">-</td></tr>
+            <tr><th>Cargo</th><td id="pResponsavelCargo">-</td></tr>
+            <tr><th>Secretaria</th><td id="pResponsavelSecretaria">-</td></tr>
+            <tr><th>E-mail</th><td id="pResponsavelEmail">-</td></tr>
+            <tr><th>Telefone</th><td id="pResponsavelTelefone">-</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="print-section">
+        <h2>3. Dados Geométricos e Técnicos</h2>
+        <table>
+          <tbody>
+            <tr><th>Extensão</th><td id="pExtensao">-</td></tr>
+            <tr><th>Largura média</th><td id="pLargura">-</td></tr>
+            <tr><th>Espessura adotada</th><td id="pEspessura">-</td></tr>
+            <tr><th>Distância da usina</th><td id="pDistancia">-</td></tr>
+            <tr><th>Densidade adotada</th><td id="pDensidade">-</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="print-section">
+        <h2>4. Quantitativos Estimados</h2>
+        <table>
+          <thead>
+            <tr><th>Descrição</th><th>Memória</th><th>Resultado</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Área total</td><td id="pMemArea">Extensão × largura</td><td id="pArea">-</td></tr>
+            <tr><td>Volume de CBUQ</td><td id="pMemVolume">Área × espessura</td><td id="pVolume">-</td></tr>
+            <tr><td>Massa estimada</td><td id="pMemToneladas">Volume × densidade</td><td id="pToneladas">-</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="print-section">
+        <h2>5. Indicadores de Custo</h2>
+        <table>
+          <thead>
+            <tr><th>Indicador</th><th>Memória</th><th>Resultado</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Custo por m²</td><td id="pMemCustoM2">Total estimado ÷ área</td><td id="pCustoM2">-</td></tr>
+            <tr><td>Custo por metro linear</td><td id="pMemCustoMetroLinear">Total estimado ÷ extensão</td><td id="pCustoMetroLinear">-</td></tr>
+            <tr><td>Custo por quilômetro de via</td><td id="pMemCustoKmVia">Total estimado ÷ extensão em km</td><td id="pCustoKmVia">-</td></tr>
+            <tr><td>Consumo de CBUQ por m²</td><td id="pMemConsumoM2">Toneladas ÷ área</td><td id="pConsumoM2">-</td></tr>
+            <tr><td>Toneladas por km</td><td id="pMemToneladasKm">Toneladas ÷ extensão em km</td><td id="pToneladasKm">-</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="print-section">
+        <h2>6. Demonstrativo Orçamentário Estimativo</h2>
+        <table>
+          <thead>
+            <tr><th>Item</th><th>Unidade</th><th>Quantidade</th><th>Preço Unitário</th><th>Total</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>CBUQ Faixa B aplicado</td><td>t</td><td id="pQtdCbuq">-</td><td id="pPrecoTon">-</td><td id="pValorCbuq">-</td></tr>
+            <tr><td>Transporte</td><td>km.t</td><td id="pQtdTransporte">-</td><td id="pPrecoKmTon">-</td><td id="pValorTransporte">-</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><th colspan="4">TOTAL ESTIMADO</th><th id="pTotal">-</th></tr>
+          </tfoot>
+        </table>
+      </section>
+
+      <section class="print-section observacao">
+        <h2>7. Observação Técnica</h2>
+        <p>
+          O presente memorial possui caráter estimativo e tem por finalidade orientar a solicitação preliminar de serviço junto ao CIM.
+          O valor apresentado não substitui análise técnica, vistoria, projeto executivo, processo administrativo, empenho, transferência,
+          programação operacional ou orçamento oficial emitido pelo Consórcio Intermunicipal Multifinalitário dos Municípios da AMUREL.
+        </p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer no-print">
+    <span>Consórcio Intermunicipal Multifinalitário dos Municípios da AMUREL – CIM</span>
+    <span>Rua Gen. Liberato Bittencourt, 1885 – Sala 102, Canto – CEP 88704-800 – Tubarão/SC</span>
+    <span>(48) 3626-5711</span>
+    <span>cim-amurel.sc.gov.br</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
